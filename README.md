@@ -5,3 +5,5 @@
 ● Lesson 01 - Data types, If-Else, Switch, Reading from and printing on the console
 
 ● Lesson 02 - Loops (while, do-while, for)
+
+● Lesson 03 - Loops Practice - Solving tasks
