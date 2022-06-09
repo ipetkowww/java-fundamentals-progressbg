@@ -7,3 +7,5 @@
 ● Lesson 02 - Loops (while, do-while, for)
 
 ● Lesson 03 - Loops Practice - Solving tasks
+
+● Lesson 04 - Methods
