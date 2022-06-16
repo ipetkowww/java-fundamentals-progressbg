@@ -9,3 +9,5 @@
 ● Lesson 03 - Loops Practice - Solving tasks
 
 ● Lesson 04 - Methods
+
+● Lesson 05 - Nested Loops
