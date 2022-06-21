@@ -1,8 +1,8 @@
-package homework;
+package additional_tasks;
 
 import java.util.Scanner;
 
-public class Task14 {
+public class Task11 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

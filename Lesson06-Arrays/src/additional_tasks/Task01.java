@@ -1,9 +1,9 @@
-package homework;
+package additional_tasks;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task04 {
+public class Task01 {
 
     public static void main(String[] args) {
         int sizeOfArray = getSizeOfArray();
