@@ -1,6 +1,6 @@
-package homework;
+package additional_tasks;
 
-public class Task08 {
+public class Task05 {
 
     public static void main(String[] args) {
         int arraySize = 10;

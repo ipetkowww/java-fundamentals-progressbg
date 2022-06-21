@@ -1,24 +1,18 @@
-package homework;
+package additional_tasks;
 
 import java.util.Scanner;
 
-public class Task05 {
+public class Task04 {
 
     public static void main(String[] args) {
         int sizeOfArray = getSizeOfArray();
         int[] array = createArrayWithElements(sizeOfArray);
-        int[] newArray = new int[array.length * 2];
 
-        int counter = 0;
-        for (int i = 0; i < array.length; i++) {
-            newArray[counter++] = array[i];
-        }
-        for (int i = array.length - 1; i >= 0; i--) {
-            newArray[counter++] = array[i];
-        }
+        boolean isMirrored = isMirrored(array);
 
-        printElementOfArray(newArray);
-
+        System.out.print("Array ");
+        printElementOfArray(array);
+        System.out.println(isMirrored ? " is mirrored" : " is not mirrored");
     }
 
     private static void printElementOfArray(int[] array) {
@@ -30,6 +24,17 @@ public class Task05 {
             }
         }
         System.out.print("]");
+    }
+
+    private static boolean isMirrored(int[] array) {
+        boolean isMirrored = true;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != array[array.length - 1 - i]) {
+                isMirrored = false;
+                break;
+            }
+        }
+        return isMirrored;
     }
 
     static int getSizeOfArray() {

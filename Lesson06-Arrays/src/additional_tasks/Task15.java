@@ -1,8 +1,8 @@
-package homework;
+package additional_tasks;
 
 import java.util.Scanner;
 
-public class Task18 {
+public class Task15 {
 
     public static void main(String[] args) {
         // scanner for reading from the console
