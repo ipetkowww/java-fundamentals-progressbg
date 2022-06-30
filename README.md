@@ -14,4 +14,4 @@
 
 ● Lesson 06 - Arrays
 
-* Lesson 07 - Search Algorithms
+● Lesson 07 - Search Algorithms
