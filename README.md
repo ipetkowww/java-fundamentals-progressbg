@@ -11,3 +11,5 @@
 ● Lesson 04 - Methods
 
 ● Lesson 05 - Nested Loops
+
+● Lesson 06 - Arrays
