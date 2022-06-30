@@ -13,3 +13,5 @@
 ● Lesson 05 - Nested Loops
 
 ● Lesson 06 - Arrays
+
+* Lesson 07 - Search Algorithms
