@@ -15,3 +15,5 @@
 ● Lesson 06 - Arrays
 
 ● Lesson 07 - Search Algorithms
+
+● Lesson 08 - Sorting Algorithms
