@@ -17,3 +17,5 @@
 ● Lesson 07 - Search Algorithms
 
 ● Lesson 08 - Sorting Algorithms
+
+● Lesson 09 - Multidimensional Arrays
