@@ -1,4 +1,4 @@
-package homework;
+package homework.zoo;
 
 public class Animal {
 

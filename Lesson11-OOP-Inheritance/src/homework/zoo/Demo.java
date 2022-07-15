@@ -1,6 +1,7 @@
-package homework;
+package homework.zoo;
 
-import homework.animals.*;
+import homework.zoo.Animal;
+import homework.zoo.animals.*;
 
 public class Demo {
 

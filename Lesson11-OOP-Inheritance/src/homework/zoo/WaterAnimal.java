@@ -1,4 +1,6 @@
-package homework;
+package homework.zoo;
+
+import homework.zoo.Animal;
 
 public class WaterAnimal extends Animal {
 

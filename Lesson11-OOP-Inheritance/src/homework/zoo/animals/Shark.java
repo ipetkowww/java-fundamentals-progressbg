@@ -1,6 +1,6 @@
-package homework.animals;
+package homework.zoo.animals;
 
-import homework.WaterAnimal;
+import homework.zoo.WaterAnimal;
 
 public class Shark extends WaterAnimal {
 

@@ -1,6 +1,6 @@
-package homework.animals;
+package homework.zoo.animals;
 
-import homework.LandAnimal;
+import homework.zoo.LandAnimal;
 
 public class Monkey extends LandAnimal {
 
