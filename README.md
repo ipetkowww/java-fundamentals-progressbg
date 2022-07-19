@@ -23,3 +23,5 @@
 ● Lesson 10 - OOP - Introduction
 
 ● Lesson 11 - OOP - Inheritance
+
+● Lesson 11 - OOP - Polymorphism & Encapsulation
