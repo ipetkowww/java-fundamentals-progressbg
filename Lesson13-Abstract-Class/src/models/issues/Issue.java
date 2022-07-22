@@ -5,9 +5,13 @@ import enums.Priority;
 import models.employees.Assignee;
 import models.employees.Tester;
 
+import static utils.Constants.NO_DESCRIPTION;
+import static utils.Constants.UNNAMED;
+import static utils.Validation.validateString;
+
 public abstract class Issue {
 
-    private String name;
+    private final String name;
     private final String description;
     private final Priority priority;
     private Assignee assignee;
@@ -21,8 +25,8 @@ public abstract class Issue {
     }
 
     protected Issue(String name, String description, Priority priority) {
-        setName(name);
-        this.description = description;
+        this.name = validateString(name) ? name : UNNAMED;
+        this.description = validateString(description) ? description : NO_DESCRIPTION;
         this.priority = priority;
     }
 
@@ -30,13 +34,17 @@ public abstract class Issue {
         this.type = type;
     }
 
-    private void setName(String name) {
-        if (name != null && !name.isEmpty()) {
-            this.name = name;
-        } else {
-            this.name = "Unnamed task";
-        }
+    public IssueType getType() {
+        return type;
     }
 
-    //TODO: add private setters with validation
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Issue: %s, Name: %s, Description: %s, Priority: %s, Assignee: %s, Tester: %s",
+                getType(), name, description, priority, assignee.getName(), tester.getName());
+    }
 }

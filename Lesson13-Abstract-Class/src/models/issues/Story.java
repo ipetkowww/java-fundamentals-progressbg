@@ -7,8 +7,8 @@ import models.employees.Tester;
 
 public class Story extends Issue {
 
-    private Assignee[] assignees;
-    private Tester[] testers;
+    private final Assignee[] assignees;
+    private final Tester[] testers;
 
     public Story(String name, String description, Priority priority, Assignee[] assignees, Tester[] testers) {
         super(name, description, priority);

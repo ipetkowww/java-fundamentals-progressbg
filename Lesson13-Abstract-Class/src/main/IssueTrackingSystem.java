@@ -8,7 +8,6 @@ import static utils.Console.*;
 
 public class IssueTrackingSystem {
 
-
     static void start() {
         greetingMessage();
         int issuesCount = readNumberFromConsole();
@@ -21,14 +20,10 @@ public class IssueTrackingSystem {
 
             switch (choice) {
                 case 1 -> {
-                    showIssueMenuOptions();
-
+                    showIssueMenuForCreate();
                     IssueType issueType = IssueType.valueOf(readTextFromConsole().toUpperCase());
-                    System.out.println("=== You selected to create " + issueType + " ===");
-                    System.out.println("Please provide following information in one line separated by | symbol");
-
+                    showWhatWasSelectedForCreationBasedOn(issueType);
                     showExampleInputBasedOn(issueType);
-
                     String[] issueInfo = readTextFromConsole().split("\\|");
 
                     Issue issue = switch (issueType) {
@@ -36,18 +31,38 @@ public class IssueTrackingSystem {
                         case TASK -> issueBoard.createTask(issueInfo);
                         case STORY -> issueBoard.createStory(issueInfo);
                     };
-                    issueBoard.addIssue(issue);
-                    //TODO: add a message whether the issues is added or not
+                    boolean added = issueBoard.addIssue(issue);
+                    if (added) {
+                        showMessageForSuccessAddOf(issue);
+                    } else {
+                        showMessageForFailureAddOf(issue);
+                    }
+                }
+                case 2 -> {
+                    showIssueMenuForView();
+                    IssueType issueType = IssueType.valueOf(readTextFromConsole().toUpperCase());
+
+                    if (issues[0] != null) {
+                        showWhatWillBeShownBasedOn(issueType);
+                        boolean foundIssue = false;
+                        for (Issue issue : issues) {
+                            if (issue != null && issue.getType().equals(issueType)) {
+                                printIssueInfo(issue);
+                                foundIssue = true;
+                            }
+                        }
+                        if (!foundIssue) {
+                            showMessageForNotCreatedSpecificIssue(issueType);
+                        }
+                    } else {
+                        showMessageForNotCreatedIssues();
+                    }
                 }
                 case 3 -> {
-                    System.out.println("Bye");
+                    showByeMessage();
                     return;
                 }
             }
-
-
         }
     }
-
-
 }

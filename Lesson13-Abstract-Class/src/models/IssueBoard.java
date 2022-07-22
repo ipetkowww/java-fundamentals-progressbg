@@ -1,17 +1,16 @@
 package models;
 
 import enums.Priority;
-import models.employees.Employee;
+import models.employees.Assignee;
+import models.employees.Tester;
 import models.issues.Bug;
 import models.issues.Issue;
 import models.issues.Story;
 import models.issues.Task;
-import models.employees.Assignee;
-import models.employees.Tester;
 
 public class IssueBoard {
 
-    private Issue[] issues;
+    private final Issue[] issues;
     private int freeSlots;
 
     public IssueBoard(Issue[] issues) {
@@ -19,9 +18,13 @@ public class IssueBoard {
         this.freeSlots = issues.length;
     }
 
-    public void addIssue(Issue issue) {
-        issues[issues.length - freeSlots] = issue;
-        freeSlots--;
+    public boolean addIssue(Issue issue) {
+        if (freeSlots > 0) {
+            issues[issues.length - freeSlots] = issue;
+            freeSlots--;
+            return true;
+        }
+        return false;
     }
 
     public Bug createBug(String[] bugInfo) {
