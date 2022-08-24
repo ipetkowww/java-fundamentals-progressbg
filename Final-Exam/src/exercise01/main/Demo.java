@@ -19,6 +19,7 @@ public class Demo {
         Player dani = new Striker("Dani", 300_000, 30, 950_000, 30);
 
         FootballClub acMilan = new FootballClub("AC Milan");
+        System.out.println("Welcome in football club: " + acMilan.getName());
 
         try {
             acMilan.buyPlayer(tony);
@@ -43,14 +44,13 @@ public class Demo {
         System.out.println("Team size: " + acMilan.teamSize());
         System.out.println("Team worth: " + acMilan.teamWorth());
 
-
-
         acMilan.playerInfo("Ivan");
         acMilan.playerInfo("Georgi");
         acMilan.playerInfo("Toni");
 
         acMilan.printOrderedBy(OrderBy.AGE);
-//        acMilan.printOrderedBy(OrderBy.SALARY);
+        acMilan.printOrderedBy(OrderBy.SALARY);
+        acMilan.printOrderedBy(OrderBy.NAME);
 
         acMilan.startGame();
     }
