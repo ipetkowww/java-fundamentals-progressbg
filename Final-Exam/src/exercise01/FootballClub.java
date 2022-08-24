@@ -4,9 +4,7 @@ import exercise01.enums.OrderBy;
 import exercise01.exceptions.PlayerSameNameExistException;
 import exercise01.players.Player;
 
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class FootballClub {
 
@@ -15,17 +13,16 @@ public class FootballClub {
 
     public FootballClub(String name) {
         this.name = name;
-        this.players = new TreeMap<>();
+        this.players = new HashMap<>();
     }
 
     public void buyPlayer(Player player) throws PlayerSameNameExistException {
         String playerName = player.getName();
-        if (!players.containsKey(playerName)) {
-            players.put(playerName, player);
-            System.out.printf("Player %s joined our club!%n", playerName);
-            return;
+        if (players.containsKey(playerName)) {
+            throw new PlayerSameNameExistException("Player with name: " + playerName + " already exist in our club!");
         }
-        throw new PlayerSameNameExistException("Player with name: " + playerName + " already exist in our club!");
+        players.put(playerName, player);
+        System.out.printf("Player %s joined our club!%n", playerName);
     }
 
     public void sellPlayer(String playerName) {
@@ -56,43 +53,49 @@ public class FootballClub {
     }
 
     public void playerInfo(String playerName) {
-        if (!players.containsKey(playerName)) {
+        if (players.containsKey(playerName)) {
+            Player player = players.get(playerName);
+            System.out.println(player);
+        } else {
             System.out.printf("Player %s is not part of our club.%n", playerName);
-            return;
         }
-        Player player = players.get(playerName);
-        System.out.println(player);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void printOrderedBy(OrderBy orderBy) {
         System.out.printf("=== Players sorted by %s ===%n", orderBy);
         switch (orderBy) {
-            case AGE -> printOrderedByAge();
-            case PRICE -> printOrderedByPrice();
-            case SALARY -> printOrderedBySalary();
-            case NAME -> printOrderedByName();
+            case AGE: printOrderedByAge(); break;
+            case PRICE: printOrderedByPrice(); break;
+            case SALARY: printOrderedBySalary(); break;
+            case NAME: printOrderedByName(); break;
         }
     }
 
     private void printOrderedBySalary() {
-        players.values().stream()
+        new ArrayList<>(players.values()).stream()
                 .sorted(Comparator.comparingDouble(Player::getSalary))
                 .forEach(System.out::println);
     }
 
     private void printOrderedByAge() {
-        players.values().stream()
+        new ArrayList<>(players.values()).stream()
                 .sorted(Comparator.comparingInt(Player::getAge))
                 .forEach(System.out::println);
     }
 
     private void printOrderedByPrice() {
-        players.values().stream()
+        new ArrayList<>(players.values()).stream()
                 .sorted(Comparator.comparingDouble(Player::getPrice))
                 .forEach(System.out::println);
     }
 
     private void printOrderedByName() {
-        players.values().forEach(System.out::println);
+        new ArrayList<>(players.values()).stream()
+                .sorted(Comparator.comparing(Player::getName))
+                .forEach(System.out::println);
     }
 }
